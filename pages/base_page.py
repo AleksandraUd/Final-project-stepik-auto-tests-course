@@ -15,3 +15,7 @@ class BasePage():
 		except (NoSuchElementException):
 			return False
 		return True
+
+	def read_innerHTML (self, how, what):
+		return self.browser.find_element(how, what).text
+		
