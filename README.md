@@ -1,1 +1,1 @@
-# Final-project-stepik-auto-tests-course
+# Final-project-stepik-auto-tests-course Page Object
