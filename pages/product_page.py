@@ -7,7 +7,7 @@ class ProductPage(BasePage):
 	def add_to_basket(self):
 		button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
 		button.click()
-		self.solve_quiz_and_get_code()
+		#self.solve_quiz_and_get_code()
 
 	def should_appear_message_about_added_product_with_correct_product_name(self):
 		self.should_appear_message_about_added_product()
@@ -30,6 +30,12 @@ class ProductPage(BasePage):
 	def should_be_equal_with_product_price(self):
 		assert self.is_element_present(*ProductPageLocators.BASKET_TOTAL), "The value of your card total is not present in the message about your card total"
 		assert self.read_innerHTML(*ProductPageLocators.BASKET_TOTAL)==self.read_innerHTML(*ProductPageLocators.PRODUCT_PRICE), "Your card total is not equal to the product price"
+
+	def should_not_be_success_message(self):
+		assert self.is_not_element_present(*ProductPageLocators.FIRST_ALERT), "Success message is presented, but should not be"
+
+	def should_dissapear_success_message(self):
+		assert self.is_disappeared(*ProductPageLocators.FIRST_ALERT), "Success message is presented, but should dissapear"
 
 	def solve_quiz_and_get_code(self):
 		alert = self.browser.switch_to.alert
