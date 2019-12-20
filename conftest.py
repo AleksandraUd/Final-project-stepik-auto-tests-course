@@ -18,11 +18,11 @@ def browser(request):
 
 	if browser_name == "chrome":
 		options = Options()
-		options.binary_location = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
+		#options.binary_location = "C:/Program Files (x86)/Google/Chrome/Application/chrome.exe"
 		options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
 		print(f"\nstart chrome browser with {user_language} language")
-		#browser = webdriver.Chrome(options=options)
-		browser = webdriver.Chrome(options=options, executable_path="C:/chromedriver/chromedriver.exe", )  
+		browser = webdriver.Chrome(options=options)
+		#browser = webdriver.Chrome(options=options, executable_path="C:/chromedriver/chromedriver.exe", )  
 	elif browser_name == "firefox":
 		print("\nstart firefox browser for test..")
 		fp = webdriver.FirefoxProfile()
